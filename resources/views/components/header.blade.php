@@ -1,0 +1,33 @@
+<nav>
+    <a>0</a>
+    <button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div>
+        <ul>
+            <li>
+                <a>1</a>
+            </li>
+            <li>
+                <a>2</a>
+            </li>
+            <li>
+                <a>3</a>
+                <div>
+                    <a>4</a>
+                    <a>5</a>
+                    <div>6</div>
+                    <a>7</a>
+                </div>
+            </li>
+            <li>
+                <a>8</a>
+            </li>
+        </ul>
+        <form>
+            <input>
+            <button>9</button>
+        </form>
+    </div>
+</nav>
