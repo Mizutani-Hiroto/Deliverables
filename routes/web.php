@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+if(env('APP_ENV') === 'local') {
+    URL::forceScheme('https');
+}
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','MypageController@index');
