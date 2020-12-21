@@ -14,7 +14,7 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        return view('works.index');
     }
 
     /**

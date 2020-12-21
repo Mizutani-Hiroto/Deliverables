@@ -24,3 +24,5 @@ if(env('APP_ENV') === 'local') {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','MypageController@index');
+
+Route::resource('works','WorkController');

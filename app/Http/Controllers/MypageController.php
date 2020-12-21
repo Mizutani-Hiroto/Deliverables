@@ -14,7 +14,7 @@ class MypageController extends Controller
      */
     public function index()
     {
-        return view('works.mypage');
+        return view('mypages.mypage');
     }
 
     /**
