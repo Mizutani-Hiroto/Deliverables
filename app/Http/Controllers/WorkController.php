@@ -24,7 +24,7 @@ class WorkController extends Controller
      */
     public function create()
     {
-        //
+        return view('works.create');
     }
 
     /**
