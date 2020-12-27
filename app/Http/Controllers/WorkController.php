@@ -35,7 +35,13 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $work = new Work();
+        $work->title = $request->input('title');
+        $work->size = $request->input('size');
+        $work->genre = $request->input('genre');
+        $work->period = $request->input('period');
+        $work->description = $request->input('description');
+        $work->save();
     }
 
     /**

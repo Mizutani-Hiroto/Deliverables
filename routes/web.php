@@ -20,6 +20,9 @@ Auth::routes();
 if(env('APP_ENV') === 'local') {
     URL::forceScheme('https');
 }
+Route::get('/works','PhotoController@index');
+
+Route::post('/works','PhotoController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
