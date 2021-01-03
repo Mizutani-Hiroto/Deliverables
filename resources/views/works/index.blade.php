@@ -1,8 +1,11 @@
-<h1>確認</h1>
+@extends('layouts.app')
 
-@if($is_image)
-<figure>
-    <img src="/storage/photo" width="100px" height="100px">
-</figure>
-@endif
-<a href="/works/create">作品を追加する</a>
+@section('content')
+
+@foreach
+// ここに画像をforeachで配置するformを書きます。
+@endforeach
+<a href="{{ route('works.create') }}">
+  <button type="button" class="btn btn-outline-secondary">作品を追加する</button>
+</a>
+@endsection

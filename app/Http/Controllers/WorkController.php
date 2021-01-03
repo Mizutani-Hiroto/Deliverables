@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Work;
+use App\photo;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -14,7 +15,9 @@ class WorkController extends Controller
      */
     public function index()
     {
-        return view('works.index');
+        $photos = Photo::all();
+        
+        return view('works.index',compact('works'));
     }
 
     /**
@@ -37,11 +40,13 @@ class WorkController extends Controller
     {
         $work = new Work();
         $work->title = $request->input('title');
+        $work->description = $request->input('description');
         $work->size = $request->input('size');
         $work->genre = $request->input('genre');
         $work->period = $request->input('period');
-        $work->description = $request->input('description');
         $work->save();
+        
+        return redirect()->route('works.show',['id=> $work->id'])->with('message','Work was successfully created.');
     }
 
     /**
@@ -52,7 +57,7 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        //
+        return view('works.show',compact('works'));
     }
 
     /**
@@ -63,7 +68,7 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        //
+        return view('works.edit',compact('work'));
     }
 
     /**
@@ -75,7 +80,15 @@ class WorkController extends Controller
      */
     public function update(Request $request, Work $work)
     {
-        //
+        //画像を受け取るコード
+        $work->title = $request->input('title');
+        $work->description = $request->input('description');
+        $work->size = $request->input('size');
+        $work->genre = $request->input('genre');
+        $work->period = $request->input('period');
+        $work->update();
+        
+        return redirect()->route('work.show',['id' => $work->id]);
     }
 
     /**
@@ -86,6 +99,8 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
-        //
+        $work->delete();
+        
+        return redirect()->route('work.index');
     }
 }

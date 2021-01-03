@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
   <div>
-    <form method="POST" action="/works" enctype="multipart/form-data">
+    <form method="POST" action="/works/{{ $work->id }}" enctype="multipart/form-data">
       {{ csrf_field() }}
+      <input type="hidden" name="_method" value="PUT">
       <input type="file" name="photo">
   </div>
   <div>
@@ -37,9 +39,9 @@
         <option value="year">約一年</option>
         <option value="over">一年以上</option>
       </select>
-      <button type="submit">作品を追加する</button>
+      <input type="submit">
   </form>
   </div>
 </div>
-@endsection
 
+@endsection
