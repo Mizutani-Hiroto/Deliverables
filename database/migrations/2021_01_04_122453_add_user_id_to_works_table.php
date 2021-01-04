@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImageToWorksTable extends Migration
+class AddUserIdToWorksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddImageToWorksTable extends Migration
     public function up()
     {
         Schema::table('works', function (Blueprint $table) {
-            $table->string('picture',100);
+            $table->integer('user_id')->nullable();
         });
     }
 

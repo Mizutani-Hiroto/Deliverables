@@ -20,12 +20,8 @@ Auth::routes();
 if(env('APP_ENV') === 'local') {
     URL::forceScheme('https');
 }
-Route::get('/works','PhotoController@index');
-
-Route::post('/works','PhotoController@store');
+Route::resource('works','WorkController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','MypageController@index');
-
-Route::resource('works','WorkController');

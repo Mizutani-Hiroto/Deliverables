@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Work;
 use App\photo;
 use Illuminate\Http\Request;
+use Storage;
+use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
@@ -15,7 +17,6 @@ class WorkController extends Controller
      */
     public function index()
     {
-        $photos = Photo::all();
         
         return view('works.index',compact('works'));
     }
@@ -44,9 +45,16 @@ class WorkController extends Controller
         $work->size = $request->input('size');
         $work->genre = $request->input('genre');
         $work->period = $request->input('period');
+        $image = $request->file('photo1');
+        $upload_info = Storage::disk('local')->putFile('images', $image, 'public');
+        $work->filepass1 = Storage::disk("local")->url($upload_info);
+        $work->filepass2 = "aa";
+        $work->filepass3 = "bb";
+        $work->user_id = Auth::id();
+
         $work->save();
         
-        return redirect()->route('works.show',['id=> $work->id'])->with('message','Work was successfully created.');
+        return redirect()->route('works.show',["id" => $work->id])->with('message','Work was successfully created.');
     }
 
     /**
@@ -57,7 +65,7 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        return view('works.show',compact('works'));
+        return view('works.show',compact('work'));
     }
 
     /**

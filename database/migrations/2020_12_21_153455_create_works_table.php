@@ -19,7 +19,7 @@ class CreateWorksTable extends Migration
             $table->integer('size');
             $table->string('genre');
             $table->integer('period');
-            $table->description('string');
+            $table->string('description');
             $table->string('filepass1');
             $table->string('filepass2');
             $table->string('filepass3');
