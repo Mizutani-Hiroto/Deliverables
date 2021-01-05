@@ -2,6 +2,7 @@
 
 @section('content')
 
+{{ $image->photo1 }}
 {{ $work->title }}
 {{ $work->description }}
 {{ $work->size }}
