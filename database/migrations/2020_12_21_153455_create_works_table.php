@@ -20,9 +20,7 @@ class CreateWorksTable extends Migration
             $table->string('genre');
             $table->integer('period');
             $table->string('description');
-            $table->string('filepass1');
-            $table->string('filepass2');
-            $table->string('filepass3');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

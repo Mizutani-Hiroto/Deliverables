@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{ $image->photo1 }}
+{{ $work->image_path }}
 {{ $work->title }}
 {{ $work->description }}
 {{ $work->size }}

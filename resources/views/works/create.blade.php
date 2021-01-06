@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
   <div>
-    <form method="POST" action="/works" enctype="multipart/form-data">
+    <form action="/works" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
-      <input type="file" name="photo1">
+      <input type="file" name="image">
 
       <div>
         <label for="exampleInputEmail">作品名</label>

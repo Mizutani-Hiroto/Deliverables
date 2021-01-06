@@ -3,7 +3,8 @@
 @section('content')
 
 @foreach($works as $work)
-  <a href="/works/{{ $work->id }}">{{ $work->photo1 }}</a>
+<a href=
+  <img src="{{ $work->image_path }}">
 @endforeach
 
 <a href="{{ route('works.create') }}">
