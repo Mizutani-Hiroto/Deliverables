@@ -1,30 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <div>
-    <form action="/works" method="post" enctype="multipart/form-data">
-      {{ csrf_field() }}
-      <input type="file" name="image">
-
-      <div>
-        <label for="exampleInputEmail">作品名</label>
-        <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ old('title') }}">
+  <form action="/works" method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+              <input type="file" name="image1">
+          </div>
+          <div class="col-sm">
+            <input type="file" name="image2">
+          </div>
+          <div class="col-sm">
+            <input type="file" name="image3">
+        </div>
       </div>
-      <div>
-        <label for="exampleInputPassword1">説明</label>
-        <textarea class="form-control" name="description">{{ old('description') }}</textarea>
-      </div>
-      <div>
-        <label for="exampleInputEmail">サイズ</label>
-        <input type="text" class="form-control" aria-describedby="emailHelp" name="size" value="{{ old('size') }}">
-      </div>
+    </div>
+    <div>
+      <label for="exampleInputEmail">作品名</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ old('title') }}">
+    </div>
+    <div>
+      <label for="exampleInputPassword1">説明</label>
+      <textarea class="form-control" name="description">{{ old('description') }}</textarea>
+    </div>
+    <div>
+      <label for="exampleInputEmail">サイズ</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" name="size" value="{{ old('size') }}">
+    </div>
       <div>
         <label>ジャンル</label>
           <select name="genre">
-          <option value="Nihonga"　selected >日本画</option>
-          <option value="watercolor">水彩画</option>
-          <option value="oil painting">油絵</option>
+            <option value="Nihonga"　selected >日本画</option>
+            <option value="watercolor">水彩画</option>
+            <option value="oil painting">油絵</option>
           </select>
       </div>
       <div>

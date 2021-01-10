@@ -2,13 +2,14 @@
 
 @section('content')
 
-<div>
+  <div>
+      <img src="{{ $work->image_path }}">
         <label for="exampleInputEmail">作品名</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ $work->title }}">
       </div>
       <div>
         <label for="exampleInputPassword1">説明</label>
-        <textarea class="form-control" name="description">{{ $works->description }}</textarea>
+        <textarea class="form-control" name="description">{{ $work->description }}</textarea>
       </div>
       <div>
         <label for="exampleInputEmail">サイズ</label>
@@ -16,7 +17,7 @@
       </div>
       <div>
         <label>ジャンル</label>
-          <select name="genre">
+          <select name="genre" value="{{ $work->genre }}">
           <option value="Nihonga"　selected >日本画</option>
           <option value="watercolor">水彩画</option>
           <option value="oil painting">油絵</option>
@@ -24,7 +25,7 @@
       </div>
       <div>
         <label>製作期間</label>
-        <select name="period">
+        <select name="period" value="{{ $work->period }}">
           <option value="1"　selected >約1日</option>
           <option value="1">約7日</option>
           <option value="1">約ひと月</option>
@@ -34,6 +35,6 @@
         </select>
       </div>
 
-<a href="works">作品一覧にもどる</a>
+<a href="/works">作品一覧にもどる</a>
 
 @endsection

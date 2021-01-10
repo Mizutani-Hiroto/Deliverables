@@ -46,8 +46,8 @@ class WorkController extends Controller
         $work->size = $request->input('size');
         $work->genre = $request->input('genre');
         $work->period = $request->input('period');
-        $image = $request->file('image');
-        $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
+        $images = $request->file('image1','image2','image3');
+        $path = Storage::disk('s3')->putFile('myprefix', $images, 'public');
         $work->image_path = Storage::disk("s3")->url($path);
         $work->user_id = Auth::id();
 
@@ -87,7 +87,7 @@ class WorkController extends Controller
      */
     public function update(Request $request, Work $work)
     {
-        //画像を受け取るコード
+        $work->image_path = $request->input('image');
         $work->title = $request->input('title');
         $work->description = $request->input('description');
         $work->size = $request->input('size');
