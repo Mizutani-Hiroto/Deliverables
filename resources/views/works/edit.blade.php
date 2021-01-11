@@ -2,8 +2,12 @@
 
 @section('content')
 
-<div>
-      <img src="{{ $work->image_path }}">
+  <div>
+    <form method="POST" action="/works/{{ $work->id }}">
+      {{ csrf_field() }}
+      <div>
+        <input type="hidden" name="_method" value="PUT">
+        <img src="{{ $work->image_path }}">
         <label for="exampleInputEmail">作品名</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ $work->title }}">
       </div>
@@ -33,8 +37,11 @@
           <option value="1">約一年</option>
           <option value="1">一年以上</option>
         </select>
+        <button type="submit">編集を確定する</button>
       </div>
-
+    </form>
+  </div>
+   
 <a href="/works">作品一覧にもどる</a>
 
 @endsection

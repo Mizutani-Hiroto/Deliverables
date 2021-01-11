@@ -87,15 +87,17 @@ class WorkController extends Controller
      */
     public function update(Request $request, Work $work)
     {
-        $work->image_path = $request->input('image');
+        //if($request->input('image1') != null){
+        //$work->image_path = $request->input('image');
+        //}
         $work->title = $request->input('title');
         $work->description = $request->input('description');
         $work->size = $request->input('size');
         $work->genre = $request->input('genre');
         $work->period = $request->input('period');
-        $work->update();
+        $work->save();
         
-        return redirect()->route('work.show',['id' => $work->id]);
+        return redirect()->route('works.show',['id' => $work->id]);
     }
 
     /**
@@ -108,6 +110,6 @@ class WorkController extends Controller
     {
         $work->delete();
         
-        return redirect()->route('work.index');
+        return redirect()->route('works.index');
     }
 }

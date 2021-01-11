@@ -2,8 +2,8 @@
 
 @section('content')
 
-  <div>
-      <img src="{{ $work->image_path }}">
+  <div class="container-sm">
+      <img src="{{ $work->image_path }}" class="img-thumbnail">
         <label for="exampleInputEmail">作品名</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ $work->title }}">
       </div>
@@ -36,5 +36,11 @@
       </div>
 
 <a href="/works">作品一覧にもどる</a>
+<a href="/works/{{ $work->id }}/edit">作品の編集をする</a>
 
+<form action="/works/{{ $work->id }}" method="POST" onsubmit="if(confirm('この作品を削除してもよろしいですか?')) { return true } else {return false };">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <button type="submit">この作品を削除する</button>
+</form>
 @endsection
