@@ -1,12 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.layouts')
 
 @section('content')
 
 @foreach($works as $work)
-  <div class="card" style="width: 18rem;">
-    <a href="/works/{{ $work->id }}">
-      <img src="{{ $work->image_path }}" class="card-img-top">
-    </a>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/works/{{ $work->id }}">
+          <img class="img-responsive" src="{{ $work->image_path }}">
+        </a>
+      </div>
+    </div>
   </div>
 @endforeach
 
