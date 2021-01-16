@@ -1,50 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-
-  <div class="container">
-    <div class="card mb-3">
-      <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="{{ $work->image_path }}" class="bd-placeholder-img" width="100%">
-          </div>
-          <div class="card-body text-center">
-            <div class="card-title">
-              <h3>
-                {{ $work->title }}
-              </h3>
-            </div>
-            <div>
-              <div>
-                <h6>説明</h6>
-              </div>
-              <div class="card-text">
-                {{ $work->description }}
-              </div>
-              <div>
-                <div>
-                  <h6>サイズ</h6>
-                </div>
-                <div>
-                  {{ $work->size }}
-                </div>
-              </div>
-              <div>
-                <div>
-                  <h6>ジャンル</h6>
-                  </div>
-                  <div>
-                    {{ $work->genre }}
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <h6>製作期間</h6>
-                  </div>
-                  <div>
-                    {{ $work->period }}
-                  </div>
-                </div>
+<div class="container">
+  <div class="card mb-3">
+    <img class="bd-placeholder-img card-img-top" src="{{ $work->image_path }}">
+    <div class="card-body">
+      @if($work->title)
+      <h3 class="card-title text-center">{{ $work->title }}</h3>
+      @else
+    　<h3>作品名未定</h3>
+    　@endif
+      <div class="row">
+        <div class="col-sm-4">
+          <p class="card-text">説明</p>
+        </div>
+        <div class="col-sm-8">
+          <p>{{ $work->description }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <p>サイズ</p>
+        </div>
+        <div class="col-sm-8">
+          <p>{{ $work->size }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <p>ジャンル</p>
+        </div>
+        <div class="col-sm-8">
+          <p>{{ $work->genre }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <p>製作期間</p>
+        </div>
+        <div class="col-sm-8">
+          <p>{{ $work->period }}</p>
+        </div>
+      </div>
+    </div>
             
               <div>
                 <a href="/works">作品一覧にもどる</a>
@@ -59,7 +57,5 @@
                 </form>
               </div>
               </div>
-      </div>
-    </div>
-  </div>
+              </div>
 @endsection

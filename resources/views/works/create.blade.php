@@ -4,7 +4,7 @@
   <form action="/works" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="container">
-      <div class="container">
+      <div class="card">
         <div class="row">
           <div class="col-sm">
               <input type="file" name="image1">
@@ -16,7 +16,6 @@
             <input type="file" name="image3">
         </div>
       </div>
-    </div>
     <div>
       <label for="exampleInputEmail">作品名</label>
       <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ old('title') }}">
@@ -51,6 +50,8 @@
       <button type="submit">作品を追加する</button>
     </form>
    </div>
+</div>
+</div>
 </div>
 @endsection
 
