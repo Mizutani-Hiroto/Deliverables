@@ -58,4 +58,17 @@
               </div>
               </div>
               </div>
+              
+              @foreach($comments as $comment)
+              <div>
+                <p>{{ $comment->text }}</p>
+              </div>
+              @endforeach
+              <div>
+                <form method="POST" action="/works/{{ $work->id }}/comments">
+                  {{ csrf_field() }}
+                  <textarea name="text"></textarea>
+                  <button type="submit">講評する</button>
+                </form>
+              </div>
 @endsection

@@ -64,7 +64,9 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        return view('works.show',compact('work'));
+        $comments = $work->comments()->get();
+    
+        return view('works.show',compact('work', 'comments'));
     }
 
     /**

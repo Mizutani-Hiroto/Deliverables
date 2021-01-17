@@ -22,6 +22,8 @@ if(env('APP_ENV') === 'local') {
 }
 Route::resource('works','WorkController');
 
+Route::post('works/{work}/comments', 'CommentController@store');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','MypageController@index');
