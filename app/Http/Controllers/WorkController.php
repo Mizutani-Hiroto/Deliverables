@@ -49,7 +49,7 @@ class WorkController extends Controller
         $images = $request->file('image1','image2','image3');
         $path = Storage::disk('s3')->putFile('myprefix', $images, 'public');
         $work->image_path = Storage::disk("s3")->url($path);
-        $work->user_id = Auth::id();
+        $work->user_id = Auth::user()->id;
 
         $work->save();
         
@@ -64,7 +64,9 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        return view('works.show',compact('work'));
+        $comments = $work->comments()->get();
+    
+        return view('works.show',compact('work', 'comments','users'));
     }
 
     /**
