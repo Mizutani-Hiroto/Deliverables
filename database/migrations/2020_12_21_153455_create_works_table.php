@@ -20,6 +20,7 @@ class CreateWorksTable extends Migration
             $table->string('genre');
             $table->integer('period');
             $table->string('description');
+            $table->integer('user_id')->nullable();
             $table->string('image_path')->nullable();
             $table->timestamps();
         });

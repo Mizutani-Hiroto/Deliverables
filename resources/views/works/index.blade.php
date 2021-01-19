@@ -5,16 +5,18 @@
 @foreach($works as $work)
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sm-4 col-xs-6">
+      <div class="col-sm">
         <a href="/works/{{ $work->id }}">
-          <img class="img-responsive" src="{{ $work->image_path }}">
+          <img src="{{ $work->image_path }}">
         </a>
-      </div>
-    </div>
+        </div>
+        </div>
   </div>
 @endforeach
 
+<div>
 <a href="{{ route('works.create') }}">
   <button type="button" class="btn btn-outline-secondary">作品を追加する</button>
 </a>
+</div>
 @endsection

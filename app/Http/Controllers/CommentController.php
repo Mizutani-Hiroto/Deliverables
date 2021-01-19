@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Work;
-use Illuminate\Http\Request;
+use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, Work $work)
+    public function store(Work $work, Request $request)
     {
         $comment = new Comment();
         $comment->text = $request->input('text');
-        $comment->user_id = Auth::user()->id;
         $comment->work_id = $work->id;
-        $review->save();
+        $comment->user_id = Auth::user()->id;
+        $comment->save();
         
         return redirect()->route('works.show', $work);
     }

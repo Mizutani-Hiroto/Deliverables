@@ -8,8 +8,10 @@
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
     <body>
+      <div>
         @component('components.header')
         @endcomponent
+      </div>
         <div class="container">
             @yield('content')
         </div>

@@ -57,18 +57,22 @@
                 </form>
               </div>
               </div>
-              </div>
               
+              <h3>講評</h3>
               @foreach($comments as $comment)
-              <div>
-                <p>{{ $comment->text }}</p>
+              <div class="card mb-3">
+                <div class="row">
+                <p class="col align-self-start">{{ $comment->text }}</p>
+              </div>
               </div>
               @endforeach
-              <div>
-                <form method="POST" action="/works/{{ $work->id }}/comments">
+              
+              <div class="container">
+                <form method="POST" action="/works/{{ $work->id }}">
                   {{ csrf_field() }}
                   <textarea name="text"></textarea>
                   <button type="submit">講評する</button>
                 </form>
               </div>
+
 @endsection
