@@ -62,7 +62,7 @@
               @foreach($comments as $comment)
               <div class="card mb-3">
                 <div class="row">
-                <p class="col align-self-start">{{ $comment->text }}</p>
+                  <p class="col align-self-start">{{ $comment->text }}</p>
               </div>
               </div>
               @endforeach

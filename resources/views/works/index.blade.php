@@ -2,17 +2,17 @@
 
 @section('content')
 
-@foreach($works as $work)
   <div class="container">
     <div class="row">
-      <div class="col-sm">
+      @foreach($works as $work)
+      <div class="col-md-3 col-sm-4 col-xs-6">
         <a href="/works/{{ $work->id }}">
-          <img src="{{ $work->image_path }}">
+          <img src="{{ $work->image_path }}" class="img-responsive list-item">
         </a>
-        </div>
-        </div>
+      </div>
+      @endforeach
+    </div>
   </div>
-@endforeach
 
 <div>
 <a href="{{ route('works.create') }}">
@@ -20,3 +20,5 @@
 </a>
 </div>
 @endsection
+
+<script src="{{ asset('js/image.js') }}"></script>

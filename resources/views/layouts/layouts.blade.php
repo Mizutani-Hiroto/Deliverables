@@ -1,18 +1,19 @@
 <html>
     <head>
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <title>@yield('title')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     </head>
     <body>
       <div>
         @component('components.header')
         @endcomponent
       </div>
-        <div class="container">
+        <div class="container main">
             @yield('content')
         </div>
         

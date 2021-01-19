@@ -66,7 +66,7 @@ class WorkController extends Controller
     {
         $comments = $work->comments()->get();
     
-        return view('works.show',compact('work', 'comments','users'));
+        return view('works.show',compact('work', 'comments'));
     }
 
     /**
