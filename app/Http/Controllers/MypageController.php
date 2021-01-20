@@ -24,7 +24,7 @@ class MypageController extends Controller
      */
     public function create()
     {
-        //
+        return view('mypages.mypage');
     }
 
     /**
@@ -35,7 +35,14 @@ class MypageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mypage = new Mypage();
+        $icon = $request->file('icon');
+        $path = Storage::disk('s3')->putFile('myprefix', $icon, 'public');
+        $icon->image_path = Storage::disk("s3")->url($path);
+        $mypage->self_introduction = $request->text('self_introduction');
+        $mypage->user_id =Auth::user()->id;
+        
+        $mypage->save();
     }
 
     /**
@@ -46,7 +53,7 @@ class MypageController extends Controller
      */
     public function show(Mypage $mypage)
     {
-        //
+        return view('mypages.show',compact('mypage'));
     }
 
     /**
@@ -57,7 +64,7 @@ class MypageController extends Controller
      */
     public function edit(Mypage $mypage)
     {
-        //
+        return view('mypages.edit',compact('mypage'));
     }
 
     /**
@@ -69,7 +76,11 @@ class MypageController extends Controller
      */
     public function update(Request $request, Mypage $mypage)
     {
-        //
+        $mypage->icon = $request->input('icon');
+        $mypage->self_introduction = $request->input('self_introduction');
+        $product->update();
+        
+        return redirect()->route('mypages.show',['id' => $mypages->id]);
     }
 
     /**
@@ -80,6 +91,9 @@ class MypageController extends Controller
      */
     public function destroy(Mypage $mypage)
     {
-        //
+        $mypage->icon->delete();
+        $mypage->self_introduction->delete();
+        
+        return redirect()->route('mypages.index');
     }
 }
