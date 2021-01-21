@@ -6,17 +6,22 @@
 
   <div>
     <div>
-      <img>icon
+      <img src="{{ $mypage->image_path }}">
         <div>name{{ $user->name }}</div>
         <div>follow</div>
         <div>follower</div>
         <div>作品一覧
-        <img>作品画像のurl
+        <img src="{{ $mypage->work->image_path }}">作品画像のurl
         </div>
         <div>フォロー作品一覧
         　作品画像のurl
         </div>
-    <div>自己紹介</div>
+        <div>
+        <div>自己紹介
+        </div>
+    <div>{{ $mypage->self_introduction }}
+    </div>
+    </div>
   </div>
   
 
