@@ -2,51 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Mypage;
+use App\User;
+use App\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
-        return view('mypages.mypage');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Mypage  $mypage
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Mypage $mypage)
-    {
-        //
+        $works = Auth::user()->works;
+        $user = Auth::user();
+        
+        return view('mypages.index',compact('works','user'));
     }
 
     /**
@@ -57,7 +26,7 @@ class MypageController extends Controller
      */
     public function edit(Mypage $mypage)
     {
-        //
+        return view('mypages.edit',compact('mypage'));
     }
 
     /**
@@ -69,17 +38,11 @@ class MypageController extends Controller
      */
     public function update(Request $request, Mypage $mypage)
     {
-        //
+        $mypage->icon = $request->input('icon');
+        $mypage->self_introduction = $request->input('self_introduction');
+        $product->update();
+        
+        return redirect()->route('mypages.show',['id' => $mypages->id]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Mypage  $mypage
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Mypage $mypage)
-    {
-        //
-    }
 }

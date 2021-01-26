@@ -15,6 +15,10 @@ class CreateMypagesTable extends Migration
     {
         Schema::create('mypages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('image_path')->nullable();
+            $table->string('self_introduction')->nullable();
+            $table->integer('user_id');
+            $table->integer('work_id');
             $table->timestamps();
         });
     }

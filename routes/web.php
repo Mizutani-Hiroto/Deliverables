@@ -27,3 +27,5 @@ Route::post('works/{work}', 'CommentController@store');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','MypageController@index');
+
+Route::get('/mypage/edit','MypageController@edit');
