@@ -12,10 +12,10 @@ class MypageController extends Controller
  
     public function index()
     {
-        $works = Auth::user()->works;
+        //$works = Auth::user()->works;
         $user = Auth::user();
         
-        return view('mypages.index',compact('works','user'));
+        return view('mypage.index',compact('user'));
     }
 
     /**
@@ -24,9 +24,9 @@ class MypageController extends Controller
      * @param  \App\Mypage  $mypage
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mypage $mypage)
+    public function edit()
     {
-        return view('mypages.edit',compact('mypage'));
+        return view('mypage.edit',compact('mypage'));
     }
 
     /**
@@ -36,13 +36,13 @@ class MypageController extends Controller
      * @param  \App\Mypage  $mypage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mypage $mypage)
+    public function update(Request $request)
     {
-        $mypage->icon = $request->input('icon');
-        $mypage->self_introduction = $request->input('self_introduction');
-        $product->update();
+        $user->icon = $request->input('icon');
+        $user->introduction = $request->input('introduction');
+        $user->update();
         
-        return redirect()->route('mypages.show',['id' => $mypages->id]);
+        return redirect()->route('mypage.index',['id' => $mypage->id]);
     }
 
 }
