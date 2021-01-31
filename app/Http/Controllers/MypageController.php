@@ -12,7 +12,7 @@ class MypageController extends Controller
  
     public function index()
     {
-        $works = Auth::user()->work;
+        $works = Auth::user()->works;
         $user = Auth::user();
         
         return view('mypage.index',compact('user','works'));
