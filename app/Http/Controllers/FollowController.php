@@ -39,6 +39,8 @@ class FollowController extends Controller
         $follow->user_id = Auth::user()->id;
         $follow->work_id = work()->id;
         $follow->save();
+        
+        return redirect()->route('works.show',['id' => $work->id]);
     }
 
     /**
@@ -83,6 +85,8 @@ class FollowController extends Controller
      */
     public function destroy(Follow $follow)
     {
-        //
+        $follow->delete();
+        
+        return redirect()->route('works.show',['id' => $work->id ]);
     }
 }

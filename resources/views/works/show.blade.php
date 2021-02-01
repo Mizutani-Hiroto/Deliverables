@@ -58,6 +58,11 @@
                   <button type="submit">この作品を削除する</button>
                 </form>
               </div>
+              <form>
+                {{ csrf_field() }}
+                <input type="hidden" name="follow">
+                <button type="submit">followする</button>
+              </form>
               </div>
               
               <h3>Evaluation</h3>
