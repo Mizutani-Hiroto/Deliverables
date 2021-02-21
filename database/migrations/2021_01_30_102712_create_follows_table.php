@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMypagesTable extends Migration
+class CreateFollowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateMypagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('mypages', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image_path')->nullable();
-            $table->string('self_introduction')->nullable();
             $table->integer('user_id');
             $table->integer('work_id');
             $table->timestamps();
@@ -30,6 +28,6 @@ class CreateMypagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mypages');
+        Schema::dropIfExists('follows');
     }
 }

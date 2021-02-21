@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Deliverable')
+
 @section('content')
 <div class="container">
   <div class="card mb-3">
@@ -56,9 +58,14 @@
                   <button type="submit">この作品を削除する</button>
                 </form>
               </div>
+              <form>
+                {{ csrf_field() }}
+                <input type="hidden" name="follow">
+                <button type="submit">followする</button>
+              </form>
               </div>
               
-              <h3>講評</h3>
+              <h3>Evaluation</h3>
               @foreach($comments as $comment)
               <div class="card mb-3">
                 <div class="row">
@@ -70,8 +77,8 @@
               <div class="container">
                 <form method="POST" action="/works/{{ $work->id }}">
                   {{ csrf_field() }}
-                  <textarea name="text"></textarea>
-                  <button type="submit">講評する</button>
+                  <textarea name="text" class="form-control"></textarea>
+                  <button type="submit">Evaluate</button>
                 </form>
               </div>
 

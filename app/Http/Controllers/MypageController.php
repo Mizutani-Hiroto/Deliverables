@@ -15,34 +15,16 @@ class MypageController extends Controller
         $works = Auth::user()->works;
         $user = Auth::user();
         
-        return view('mypages.index',compact('works','user'));
+        return view('mypage.index',compact('user','works'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Mypage  $mypage
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Mypage $mypage)
+    public function update(Request $request)
     {
-        return view('mypages.edit',compact('mypage'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mypage  $mypage
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Mypage $mypage)
-    {
-        $mypage->icon = $request->input('icon');
-        $mypage->self_introduction = $request->input('self_introduction');
-        $product->update();
+        $user->icon = $request->input('icon');
+        $user->introduction = $request->input('introduction');
+        $user->save();
         
-        return redirect()->route('mypages.show',['id' => $mypages->id]);
+        return redirect()->route('mypage.index');
     }
 
 }
