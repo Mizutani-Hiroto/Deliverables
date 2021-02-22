@@ -9,7 +9,7 @@
         <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     </head>
     <body>
-      <div>
+      <div class="container">
         @component('components.header')
         @endcomponent
       </div>
