@@ -16,7 +16,7 @@
 
 <div>
 <a href="{{ route('works.create') }}">
-  <button type="button" class="btn btn-outline-secondary">作品を追加する</button>
+  <button type="button" class="btn btn-outline-primary fixed_btn">作品を追加する</button>
 </a>
 </div>
 @endsection

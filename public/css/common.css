@@ -11,3 +11,10 @@
     box-shadow: 0px 6px 14px 6px rgba(0,0,0,0.30);
     margin-bottom:20px;
 }
+
+.fixed_btn{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 6px 40px;
+}
