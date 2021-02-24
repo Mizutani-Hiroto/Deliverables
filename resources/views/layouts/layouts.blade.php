@@ -10,12 +10,14 @@
     </head>
     <body>
       <div class="container">
-        @component('components.header')
-        @endcomponent
-      </div>
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+          @component('components.header')
+          @endcomponent
+        </nav>
         <div class="container main">
             @yield('content')
         </div>
+      </div>
         
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
