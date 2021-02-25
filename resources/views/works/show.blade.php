@@ -4,11 +4,11 @@
 
 @section('content')
 <div class="container">
-  <div class="card mb-3">
-    <img class="bd-placeholder-img card-img-top" src="{{ $work->image_path }}">
+    <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">
     <div class="card-body">
       @if($work->title)
-      <h3 class="card-title text-center">{{ $work->title }}</h3>
+      <h3 class="text-center">{{ $work->title }}</h3>
+      <hr>
       @else
     　<h3>作品名未定</h3>
     　@endif
@@ -64,6 +64,7 @@
                 <button type="submit">followする</button>
               </form>
               </div>
+              <hr>
               
               <h3>Evaluation</h3>
               @foreach($comments as $comment)
