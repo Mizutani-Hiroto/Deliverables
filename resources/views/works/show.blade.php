@@ -14,7 +14,7 @@
     　@endif
       <div class="row">
         <div class="col-sm-4">
-          <p class="card-text">説明</p>
+          <p>説明</p>
         </div>
         <div class="col-sm-8">
           <p>{{ $work->description }}</p>
@@ -46,10 +46,9 @@
       </div>
     </div>
             
-              <div>
-                <a href="/works">作品一覧にもどる</a>
-                <a href="/works/{{ $work->id }}/edit">作品の編集をする</a>
-              </div>
+                <a href="/works/{{ $work->id }}/edit">
+                  <p class="text-center">この作品の編集する</p>
+                </a>
             
               <div>
                 <form action="/works/{{ $work->id }}" method="POST" onsubmit="if(confirm('この作品を削除してもよろしいですか?')) { return true } else {return false };">
@@ -58,12 +57,7 @@
                   <button type="submit">この作品を削除する</button>
                 </form>
               </div>
-              <form>
-                {{ csrf_field() }}
-                <input type="hidden" name="follow">
-                <button type="submit">followする</button>
-              </form>
-              </div>
+              
               <hr>
               
               <h3>Evaluation</h3>
