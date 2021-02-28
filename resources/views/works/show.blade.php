@@ -5,7 +5,6 @@
 @section('content')
 <div class="container">
     <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">
-    <div class="card-body">
       @if($work->title)
       <h3 class="text-center">{{ $work->title }}</h3>
       <hr>

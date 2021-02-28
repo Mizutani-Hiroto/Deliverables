@@ -1,16 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.layouts')
 
 @section('content')
 
   <div class="container">
-    <div class="card mb-3">
-      <div class="row no-gutters">
-        <div class="col-md-4">
     <form method="POST" action="/works/{{ $work->id }}">
       {{ csrf_field() }}
       <div>
         <input type="hidden" name="_method" value="PUT">
-        <img src="{{ $work->image_path }}">
+        <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">
+        <label for="exampleInputPassword1">タイトル</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ $work->title }}">
       </div>
       <div>
@@ -42,8 +40,6 @@
         <button type="submit">編集を確定する</button>
       </div>
     </form>
-    </div>
-    </div>
   </div>
    
 <a href="/works">作品一覧にもどる</a>
