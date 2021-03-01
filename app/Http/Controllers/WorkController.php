@@ -46,7 +46,7 @@ class WorkController extends Controller
         $work->size = $request->input('size');
         $work->genre = $request->input('genre');
         $work->period = $request->input('period');
-        $images = $request->file('image1','image2','image3');
+        $images = $request->file('image1');
         $path = Storage::disk('s3')->putFile('myprefix', $images, 'public');
         $work->image_path = Storage::disk("s3")->url($path);
         $work->user_id = Auth::user()->id;

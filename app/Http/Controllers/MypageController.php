@@ -18,6 +18,10 @@ class MypageController extends Controller
         return view('mypage.index',compact('user','works'));
     }
 
+    public function edit(User $User, Work $work)
+    {
+        return view('mypage.edit',compact('user','works'));
+    }
     public function update(Request $request)
     {
         $user->icon = $request->input('icon');

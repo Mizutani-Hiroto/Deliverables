@@ -26,4 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','MypageController@index')->middleware('auth');
 
+Route::get('/mypage/edit','MypageController@edit')->middleware('auth');
+
 Auth::routes();

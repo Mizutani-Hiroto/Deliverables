@@ -45,9 +45,11 @@
       </div>
     </div>
             
-                <a href="/works/{{ $work->id }}/edit">
-                  <p class="text-center">この作品の編集する</p>
-                </a>
+                
+                  <p class="text-center">
+                    <a href="/works/{{ $work->id }}/edit">この作品の編集する</a>
+                    </p>
+                
             
               <div>
                 <form action="/works/{{ $work->id }}" method="POST" onsubmit="if(confirm('この作品を削除してもよろしいですか?')) { return true } else {return false };">
