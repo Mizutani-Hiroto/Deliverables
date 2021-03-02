@@ -20,11 +20,14 @@ class MypageController extends Controller
 
     public function edit(User $User, Work $work)
     {
+        $works = Auth::user()->works;
+        $user = Auth::user();
+        
         return view('mypage.edit',compact('user','works'));
     }
     public function update(Request $request)
     {
-        $user->icon = $request->input('icon');
+        $user->icon = $request->input('icon1');
         $user->introduction = $request->input('introduction');
         $user->save();
         
