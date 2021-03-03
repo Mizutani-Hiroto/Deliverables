@@ -7,6 +7,9 @@
     <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">
       @if($work->title)
       <h3 class="text-center">{{ $work->title }}</h3>
+      <p class="text-right">
+         <a href="/works/{{ $work->id }}/edit">この作品の編集する</a>
+      </p>
       <hr>
       @else
     　<h3>作品名未定</h3>
@@ -44,18 +47,13 @@
         </div>
       </div>
     </div>
-            
-                
-                  <p class="text-center">
-                    <a href="/works/{{ $work->id }}/edit">この作品の編集する</a>
-                    </p>
                 
             
-              <div>
+              <div class="text-right">
                 <form action="/works/{{ $work->id }}" method="POST" onsubmit="if(confirm('この作品を削除してもよろしいですか?')) { return true } else {return false };">
                   <input type="hidden" name="_method" value="DELETE">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <button type="submit">この作品を削除する</button>
+                  <button type="submit" class="btn btn-secondary">この作品を削除する</button>
                 </form>
               </div>
               
@@ -70,11 +68,11 @@
               </div>
               @endforeach
               
-              <div class="container">
+              <div class="container text-right">
                 <form method="POST" action="/works/{{ $work->id }}">
                   {{ csrf_field() }}
                   <textarea name="text" class="form-control"></textarea>
-                  <button class="text-end"  type="submit">送信する</button>
+                  <button class="btn btn-success"  type="submit">送信する</button>
                 </form>
               </div>
 
