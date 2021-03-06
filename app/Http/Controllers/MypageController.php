@@ -25,7 +25,7 @@ class MypageController extends Controller
         
         return view('mypage.edit',compact('user','works'));
     }
-    public function update(Request $request)
+    public function update(Request $request,User $user,Work $Work)
     {
         $user->icon = $request->input('icon1');
         $user->introduction = $request->input('introduction');
