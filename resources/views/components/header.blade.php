@@ -1,33 +1,51 @@
-<div class="container-fluid">
-<a href="/works" class="navbar-brand">Deliverable</a>
+<nav class="navbar navbar-expand navbar-dark blue-gradient">
+
+  <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>memo</a>
+
+  <ul class="navbar-nav ml-auto">
+
     @guest
-       <div class="form-inline">
-         <li class="nav-item">
-           <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
-         </li>
-         @if (Route::has('register'))
-           <li class="nav-item">
-             <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録する') }}</a>
-           </li>
-         @endif
-         @else
-           <li class="dropdown-menu">
-             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-               {{ Auth::user()->name }} <span class="caret"></span>
-             </a>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a>
+    </li>
+    @endguest
 
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <a class="dropdown-item" href="{{ route('logout') }}"
-                 onclick="event.preventDefault();
-                   document.getElementById('logout-form').submit();">
-                     {{ __('Logout') }}
-               </a>
+    @guest
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+    </li>
+    @endguest
 
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-             </div>
-           </li>
-       </div>
-           @endguest
-           </div>
+    @auth
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('works.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
+    </li>
+    @endauth
+
+    @auth
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user-circle"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+        <button class="dropdown-item" type="button"
+                onclick="location.href=''">
+          マイページ
+        </button>
+        <div class="dropdown-divider"></div>
+        <button form="logout-button" class="dropdown-item" type="submit">
+          ログアウト
+        </button>
+      </div>
+    </li>
+    <form id="logout-button" method="POST" action="{{ route('logout') }}">
+      @csrf
+    </form>
+    <!-- Dropdown -->
+    @endauth
+
+  </ul>
+
+</nav>
