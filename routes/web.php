@@ -22,7 +22,7 @@ Route::post('works/{work}', 'CommentController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/mypage','MypageController@index')->middleware('auth');
+Route::get('/mypage','MypageController@index')->name('mypage.index')->middleware('auth');
 
 Route::get('/mypage/edit','MypageController@edit')->middleware('auth');
 
