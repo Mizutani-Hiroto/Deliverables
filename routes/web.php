@@ -12,11 +12,12 @@
 */
 Auth::routes();
 
-Route::get('/', 'WorkController@index');
-
 if(env('APP_ENV') === 'local') {
     URL::forceScheme('https');
 }
+
+Route::get('/', 'WorkController@index')->middleware('auth');
+
 Route::resource('works','WorkController')->except(['index'])->middleware('auth');
 
 Route::post('works/{work}', 'CommentController@store');

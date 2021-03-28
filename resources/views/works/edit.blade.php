@@ -40,8 +40,8 @@
         <button type="submit">編集を確定する</button>
       </div>
     </form>
+    <a href="/works">作品一覧にもどる</a>
   </div>
    
-<a href="/works">作品一覧にもどる</a>
 
 @endsection
