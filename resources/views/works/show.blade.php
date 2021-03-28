@@ -59,6 +59,7 @@
               
               <hr>
               
+              <div class="container">
               <h3>講評する</h3>
               @foreach($comments as $comment)
               <div class="card mb-3">
@@ -74,6 +75,7 @@
                   <textarea name="text" class="form-control"></textarea>
                   <button class="btn btn-success"  type="submit">送信する</button>
                 </form>
+              </div>
               </div>
 
 @endsection

@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
+    public function _construct()
+    {
+        $this->authorizeResource(Article::class,'aritcle');
+    }
     /**
      * Display a listing of the resource.
      *
