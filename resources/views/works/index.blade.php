@@ -2,7 +2,9 @@
 
 @section('content')
 
-  <div class="container">
+  <div class="content">
+    @include('components.header')
+    <div class="container">
     <div class="row">
       @foreach($works as $work)
       <div class="col-md-3 col-sm-4 col-xs-6">
@@ -12,6 +14,7 @@
       </div>
       @endforeach
     </div>
+  </div>
   </div>
 
 @endsection

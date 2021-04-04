@@ -16,7 +16,7 @@ class WorkPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
         return true;
     }
@@ -28,7 +28,7 @@ class WorkPolicy
      * @param  \App\Work  $work
      * @return mixed
      */
-    public function view(User $user, Work $work)
+    public function view(?User $user, Work $work)
     {
         return true;
     }
@@ -53,7 +53,7 @@ class WorkPolicy
      */
     public function update(User $user, Work $work)
     {
-        return $user->id === $article_id;
+        return $user->id === $work_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class WorkPolicy
      */
     public function delete(User $user, Work $work)
     {
-        return $user->id === $article->user_id;
+        return $user->id === $work->user_id;
     }
 
     /**
