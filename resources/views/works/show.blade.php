@@ -2,6 +2,8 @@
 
 @section('title', 'Deliverable')
 
+@include('components.header')
+
 @section('content')
 <div class="container">
     <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">

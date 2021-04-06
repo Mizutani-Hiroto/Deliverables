@@ -1,6 +1,8 @@
 @extends('layouts.layouts')
 
 @section('content')
+
+@include('components.header')
   <form action="/works" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="container">

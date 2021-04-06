@@ -31,7 +31,7 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
-                onclick="location.href=''">
+                onclick="location.href='https://3b90213c92e840c2b8d1b5f05f0f6043.vfs.cloud9.us-east-2.amazonaws.com/mypage'">
           マイページ
         </button>
         <div class="dropdown-divider"></div>

@@ -2,6 +2,7 @@
 
 @section('content')
 
+@include('components.header')
   <div class="container">
     <form method="POST" action="/works/{{ $work->id }}">
       {{ csrf_field() }}

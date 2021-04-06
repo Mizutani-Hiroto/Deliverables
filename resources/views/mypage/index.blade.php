@@ -2,9 +2,11 @@
 
 @section('title','deliverable')
 
+@include('components.header')
+
 @section('content')
 
-  <div class="container">
+  <div class="container main">
     <div class="row">
       <div class="col text-center">
         @if(isset($user->icon))
