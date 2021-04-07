@@ -5,7 +5,7 @@
 @include('components.header')
 
 @section('content')
-<div class="container">
+<div class="container main">
     <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">
       @if($work->title)
       <h3 class="text-center">{{ $work->title }}</h3>
