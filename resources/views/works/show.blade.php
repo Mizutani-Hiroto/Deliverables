@@ -9,6 +9,10 @@
     <img class="rounded mx-auto d-block"  src="{{ $work->image_path }}"　width="300" height="300">
       @if($work->title)
       <h3 class="text-center">{{ $work->title }}</h3>
+      <aricle-like
+        :initial-is-liked-by='@json($work->isLikedBy(Auth::user()))'
+      >
+      </aricle-like>
       <p class="text-right">
          <a href="/works/{{ $work->id }}/edit">この作品の編集する</a>
       </p>
