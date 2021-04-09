@@ -3,6 +3,7 @@
 @section('content')
 
 @include('components.header')
+<div class="conatainer main">
   <form action="/works" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="container">
@@ -41,5 +42,6 @@
         <button type="submit">作品を追加する</button>
     </div>
   </form>
+  </div>
 @endsection
 

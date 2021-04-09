@@ -46,7 +46,7 @@
               </div>
             </div>
             <div>
-              <div class="h3">introduction</div>
+              <div class="h3">自己紹介</div>
                 @if(isset($user->introduction))
                   <form>
                     {{ csrf_field() }}
